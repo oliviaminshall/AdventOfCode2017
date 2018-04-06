@@ -7,12 +7,14 @@ counter = 0
 for line in f:
     line = line.strip("\n")
     words = line.split(" ")
-    un = list(set(words))
     for word in words:
-        c = ''.join(sorted(word))
+        b = sorted(word)
+        c = ''.join(b)
         words.remove(word)
         words.append(c)
     un = list(set(words))
-    if(len(un) != len(words)):
+    print(un)
+    print(words)
+    if(len(un) == len(words)):
         counter = counter + 1
 print(counter)
