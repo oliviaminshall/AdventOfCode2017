@@ -2,6 +2,8 @@ import re
 registers = {}
 conditions = []
 counter = 0
+biggest = []
+
 instructions = []
 f = open("Day8.txt","r")
 
@@ -69,8 +71,12 @@ for i, inst in enumerate(instructions):
         if reg in registers:
             c = conditions[i]
             checkCondition(c,inst)
+    largest = max(registers, key=lambda i: registers[i])
+    biggest.append(registers.get(largest,"none"))
+
 
 
 largest = max(registers, key=lambda i: registers[i])
 Day1 = registers.get(largest,"none")
-print(Day1)
+print("day1:",Day1)
+print("day2:",max(biggest))
